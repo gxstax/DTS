@@ -1,0 +1,14 @@
+db: heytea
+rules:
+  -
+    table: user
+    ranges:
+      -
+        field: id
+        ge: 0
+        lt: 100
+    equals:
+      -
+        field:
+        value: 7
+

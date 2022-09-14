@@ -1,0 +1,11 @@
+db: heytea
+tables:
+    -
+      table: user\S?
+      exchanges:
+        -
+          exchangeName: heytea
+          routeKey: heytea*
+          column: name,status # 监听的变化字段
+          extendColumn: id, content
+          eventType: INSERT,UPDATE

@@ -1,0 +1,15 @@
+db: heytea
+tables:
+    -
+      table: user\S?
+      topics:
+        -
+          topic: heytea
+          partitions: 3 # 主题分区个数
+          assignPartition:  # 指定发送分区号（目的是消息的有序性，分区号从 0 开始）,这里暂时限定只能指定一个分区，
+                             # 原因我觉得指定分区的目的是保证有序性，如果不要求有序性，那么kafka新版本默认的轮询策略完全能够满足你的业务需求。
+                             # 如果有更复杂的分区策略，比入说按区域划分策略，请移步分区策略配置文件 kafka-partition-rule.yml 单独配置
+          route: ROUND_ROBIN #RANDOM | ROUND_ROBIN | COLUMN[id]
+          column: name,status # 监听的变化字段
+          extendColumn: id, content
+          eventType: INSERT,UPDATE

@@ -1,0 +1,7 @@
+kafka:
+  topics:
+    -
+      topic: heytea # 主题
+
+
+
