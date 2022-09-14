@@ -4,15 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <groupId>com.heytea.starter</groupId>
-        <artifactId>heytea-spring-boot-starter</artifactId>
-        <version>2.0.0.M5-SNAPSHOT</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starters</artifactId>
+        <version>2.1.3.RELEASE</version>
         <relativePath /> <!-- lookup parent from repository -->
     </parent>
 
-    <artifactId>data-transfer-center</artifactId>
-    <groupId>com.heytea.platform</groupId>
-    <version>1.0.0_${app.version}</version>
+    <artifactId>DTS</artifactId>
+    <groupId>com.ant</groupId>
+    <version>1.0.0_V1</version>
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
@@ -33,6 +33,7 @@
         <slf4j_version>1.7.30</slf4j_version>
         <logback_version>1.2.3</logback_version>
         <caffeine.version>2.8.6</caffeine.version>
+        <logstash_logback.version>7.0</logstash_logback.version>
     </properties>
 
     <dependencies>
@@ -88,14 +89,18 @@
             <version>${curator.version}</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/net.logstash.logback/logstash-logback-encoder -->
         <dependency>
             <groupId>net.logstash.logback</groupId>
             <artifactId>logstash-logback-encoder</artifactId>
+            <version>${logstash_logback.version}</version>
         </dependency>
+
 
         <dependency>
             <groupId>com.spring4all</groupId>
             <artifactId>swagger-spring-boot-starter</artifactId>
+            <version>2.0.2.RELEASE</version>
             <exclusions>
                 <exclusion>
                     <groupId>io.swagger</groupId>
@@ -184,32 +189,32 @@
 
     </dependencies>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.heytea.starter</groupId>
-                <artifactId>heytea-spring-boot-dependencies</artifactId>
-                <version>${heytea-starter.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+<!--    <dependencyManagement>-->
+<!--        <dependencies>-->
+<!--            <dependency>-->
+<!--                <groupId>com.heytea.starter</groupId>-->
+<!--                <artifactId>heytea-spring-boot-dependencies</artifactId>-->
+<!--                <version>${heytea-starter.version}</version>-->
+<!--                <type>pom</type>-->
+<!--                <scope>import</scope>-->
+<!--            </dependency>-->
+<!--        </dependencies>-->
+<!--    </dependencyManagement>-->
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>build-info</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>build-info</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
 
 </project>
